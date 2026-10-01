@@ -1,59 +1,80 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CYB102 • Theory Study</title>
-<style>
-:root{--bg:#f4f9ff;--white:#fff;--navy:#14233d;--blue:#4b9fff;--sky:#dff2ff;--baby:#eaf7ff;--line:#d7e9f8;--muted:#71849b;--pink:#f4c7dc}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--navy);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:linear-gradient(180deg,#e9f6ff 0%,#f8fbff 38%,#eef7ff 100%);background-attachment:fixed}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 10% 5%,#bfe7ff66 0,transparent 25%),radial-gradient(circle at 90% 18%,#f4c7dc55 0,transparent 22%);z-index:-1}
-button{font:inherit}.wrap{max-width:900px;margin:auto;padding:20px 15px 60px}
-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.brand{display:flex;gap:11px;align-items:center}.logo{width:48px;height:48px;border-radius:17px;display:grid;place-items:center;font-weight:900;font-size:20px;color:#fff;background:linear-gradient(135deg,#56aaff,#8bd7ff);box-shadow:0 10px 25px #55aefb44}.brand h1{font-size:18px;margin:0}.brand small{display:block;color:var(--muted);margin-top:2px}
-.badge{font-size:11px;color:#4389c9;border:1px solid #c9e6fa;background:#fff;padding:8px 12px;border-radius:999px;box-shadow:0 5px 15px #80b9d822}
-.hero{padding:25px;border:1px solid var(--line);border-radius:27px;background:linear-gradient(135deg,#ffffffee,#e9f7ffed);box-shadow:0 16px 40px #83b6d522;margin-bottom:17px;position:relative;overflow:hidden}.hero:after{content:"✦  ♡  ✧";position:absolute;right:18px;top:12px;color:#77baf0;font-size:21px;letter-spacing:5px}.hero h2{margin:0 0 8px;font-size:clamp(26px,6vw,39px);letter-spacing:-1.2px}.hero p{margin:0;color:#71849b;line-height:1.65;max-width:690px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}.unit{cursor:pointer;text-align:left;color:var(--navy);padding:18px;border:1px solid var(--line);border-radius:20px;background:#ffffffd9;box-shadow:0 9px 25px #80aeca1b;transition:.2s}.unit:hover{border-color:#83c7f7;transform:translateY(-2px);box-shadow:0 13px 28px #73b5e833}.unit b{display:block;margin-bottom:6px}.unit span{font-size:12px;color:var(--muted)}
-.hidden{display:none!important}.tabs{display:flex;gap:8px;overflow:auto;padding:2px 1px 12px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tab{white-space:nowrap;cursor:pointer;border:1px solid #cfe5f5;background:#ffffff;color:#7190aa;border-radius:999px;padding:9px 14px;box-shadow:0 4px 12px #75acd51a}.tab.active{color:#fff;border-color:#65aef0;background:linear-gradient(135deg,#62adf4,#438ee0)}
-.card{border:1px solid var(--line);border-radius:27px;background:#ffffffef;padding:23px;box-shadow:0 18px 48px #739ab52b}.top{display:flex;justify-content:space-between;gap:10px;color:#7a91a8;font-size:12px;margin-bottom:15px}.progress{height:7px;background:#e4f1fb;border-radius:9px;overflow:hidden;margin-bottom:26px}.bar{height:100%;background:linear-gradient(90deg,#65b7ff,#9edfff);transition:.25s}.label{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:800;color:#4b96d9;margin-bottom:9px}.q{font-size:clamp(21px,5vw,30px);line-height:1.4;margin:0 0 20px;letter-spacing:-.35px}.answer{display:none;background:linear-gradient(135deg,#eff9ff,#fff6fb);border-left:4px solid #69b9f5;padding:18px;border-radius:0 17px 17px 0;line-height:1.8;color:#334b66;box-shadow:inset 0 0 20px #ccecff44}.answer.show{display:block}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:21px}.btn{cursor:pointer;padding:11px 15px;border-radius:14px;border:1px solid #d1e6f5;background:#f7fbff;color:#45627f;box-shadow:0 5px 14px #80aac01c}.btn.primary{background:linear-gradient(135deg,#62b4fa,#478fdc);border-color:#69aee6;color:#fff;box-shadow:0 9px 22px #5daaf044}.hint{font-size:12px;color:#91a2b3;margin-top:14px}.finish{text-align:center}.finish .tick{font-size:50px;color:#5caef0}.finish p{color:var(--muted);line-height:1.6}
-@media(max-width:560px){.grid{grid-template-columns:1fr}.hero{padding:21px;border-radius:22px}.card{padding:18px;border-radius:22px}.badge{display:none}}
-</style></head>
-<body><div class="wrap">
-<header><div class="brand"><div class="logo">C</div><div><h1>CYB102 Theory 📚💙</h1><small>Internet &amp; its Application</small></div></div><div class="badge">FOCUS MODE</div></header>
-<section class="hero"><h2>Read. Think. Recall. ✦</h2><p>Practice the way you will write it in the exam. Answer in your own words first, then reveal the model answer.</p></section>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faith's CYB102 Study App</title>
 
-<section id="home"><div class="grid" id="units"></div></section>
-<section id="study" class="hidden"><div class="tabs" id="tabs"></div><div class="card">
-<div class="top"><span id="count"></span><span id="unit"></span></div><div class="progress"><div class="bar" id="bar"></div></div>
-<div class="label">💭 Theory Question</div><h2 class="q" id="question"></h2>
-<div class="answer" id="answer"><div class="label">💙 Model Answer</div><div id="answerText"></div></div>
-<div class="actions"><button class="btn primary" id="reveal">💡 Show Answer</button><button class="btn" id="next">Next Question → ✨</button><button class="btn" id="back">📚 Units</button></div>
-<div class="hint">Write your answer first. Then tap “💡 Show Answer” and compare your points.</div>
-</div></section>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<section id="finish" class="card finish hidden"><div class="tick">🎀✨</div><h2>Unit complete</h2><p>You’ve finished this set. Keep going with another unit or repeat this one.</p><div class="actions" style="justify-content:center"><button class="btn primary" id="again">🔄 Restart Unit</button><button class="btn" id="all">📚 All Units</button></div></section>
-</div>
-<script>
-const bank=[{"unit": "Unit 1 — Internet & Its Applications", "q": "What is the Internet?", "a": "The Internet is the global system of interconnected computer networks that use the Internet protocol suite (TCP/IP) to link devices worldwide."}, {"unit": "Unit 1 — Internet & Its Applications", "q": "Explain the evolution of the Internet.", "a": "The notes describe the evolution of the Internet as a dynamic process that unfolded over several decades, leading to interconnected networks and the modern Internet."}, {"unit": "Unit 1 — Internet & Its Applications", "q": "What is hypertext and what is hypermedia?", "a": "Hypertext is text containing electronic links to other text. Hypermedia extends this idea to linked content such as pictures, sounds, animations and movies."}, {"unit": "Unit 1 — Internet & Its Applications", "q": "What is HTML?", "a": "HTML (Hypertext Markup Language) is a set of commands used to create World Wide Web documents and define elements such as headings, paragraphs, lists, images and links."}, {"unit": "Unit 1 — Internet & Its Applications", "q": "What is a URL?", "a": "A URL (Uniform Resource Locator) is an address used to identify a web resource. It can identify the host, directory path, file and protocol."}, {"unit": "Unit 1 — Internet & Its Applications", "q": "What is HTTP?", "a": "HTTP (Hypertext Transfer Protocol) is the protocol used to transfer hypertext or hypermedia documents."}, {"unit": "Unit 1 — Internet & Its Applications", "q": "Differentiate between a client and a server.", "a": "A client is a computer with a web browser that requests information. A server is a host computer capable of providing information to others using server software."}, {"unit": "Unit 1 — Internet & Its Applications", "q": "Explain Telnet, FTP, SMTP and DNS.", "a": "Telnet allows connection to a remote machine; FTP transfers files over a network; SMTP transports electronic mail; DNS resolves an IP address into a textual host address, as described in the notes."}, {"unit": "Unit 1 — Internet & Its Applications", "q": "What is the Internet of Things (IoT)?", "a": "IoT is a network of physical devices, vehicles, appliances and other objects embedded with sensors, software and network connectivity so they can collect and exchange data."}, {"unit": "Unit 1 — Internet & Its Applications", "q": "Mention IoT connectivity technologies.", "a": "The notes mention Wi-Fi, Bluetooth, RFID and cellular networks."}, {"unit": "Unit 1 — Internet & Its Applications", "q": "What is an ISP?", "a": "An ISP (Internet Service Provider) provides users with access to the Internet."}, {"unit": "Unit 1 — Internet & Its Applications", "q": "State basic Internet connectivity troubleshooting steps.", "a": "Check physical connections, verify device connectivity, check Wi-Fi, run network troubleshooters, inspect modem/router lights, review network settings, use ping, check DNS, check firewall/security software and contact the ISP if necessary."}, {"unit": "Unit 2 — Computer Networks", "q": "What is a computer network?", "a": "A computer network enables communication and sharing of resources between computers."}, {"unit": "Unit 2 — Computer Networks", "q": "Differentiate LAN, MAN and WAN.", "a": "LAN covers a small area such as a building or campus; MAN covers a larger area such as a city or large campus; WAN covers a broad geographic area and can connect networks over long distances."}, {"unit": "Unit 2 — Computer Networks", "q": "Differentiate client/server and peer-to-peer networks.", "a": "In client/server networking, dedicated servers provide services and resources to clients. In peer-to-peer networking, computers can share resources directly without depending on a dedicated central server."}, {"unit": "Unit 2 — Computer Networks", "q": "What is the OSI model?", "a": "The OSI (Open Systems Interconnection) model is a conceptual framework that uses layers to describe the functions involved in network communication."}, {"unit": "Unit 2 — Computer Networks", "q": "List the seven OSI layers.", "a": "Physical, Data Link, Network, Transport, Session, Presentation and Application."}, {"unit": "Unit 2 — Computer Networks", "q": "State the functions of the Physical, Data Link and Network layers.", "a": "Physical handles physical connections; Data Link creates a reliable link between directly connected nodes; Network manages routing of packets between devices on different networks."}, {"unit": "Unit 2 — Computer Networks", "q": "State the functions of the Transport, Session, Presentation and Application layers.", "a": "Transport provides end-to-end communication, error recovery and flow control; Session manages sessions; Presentation translates data and can handle encryption/compression; Application provides network services directly to applications."}, {"unit": "Unit 2 — Computer Networks", "q": "List the TCP/IP model layers in the notes.", "a": "Link/Network Interface, Internet, Transport and Application."}, {"unit": "Unit 2 — Computer Networks", "q": "What is transmission media? Differentiate guided and unguided media.", "a": "Transmission media are communication channels that carry signals. Guided media use physical paths such as cables, while unguided media transmit signals without physical cables."}, {"unit": "Unit 2 — Computer Networks", "q": "Explain twisted pair, coaxial cable and optical fiber.", "a": "Twisted pair uses twisted insulated copper wires; coaxial cable has a central conductor, insulation and metallic shield; optical fiber carries data as light through glass or plastic fibers."}, {"unit": "Unit 2 — Computer Networks", "q": "Mention and explain unguided media in the notes.", "a": "Wireless transmission uses radio, microwave or infrared signals; satellite communication uses orbiting satellites; microwave communication uses high-frequency radio waves; infrared is used for short-range communication."}, {"unit": "Unit 2 — Computer Networks", "q": "Explain bus, star, ring, mesh and tree topologies.", "a": "Bus uses one shared communication line; star connects devices to a central hub/switch; ring forms a closed loop; mesh provides multiple device-to-device paths; tree combines characteristics of bus and star using a backbone."}, {"unit": "Unit 2 — Computer Networks", "q": "What are NIC, repeater and hub?", "a": "A NIC connects a computer to a network; a repeater regenerates and retransmits signals to extend range; a hub connects LAN devices and broadcasts data to connected devices."}, {"unit": "Unit 2 — Computer Networks", "q": "What are a bridge, switch, gateway and router?", "a": "A bridge connects/filters network segments; a switch forwards data using MAC addresses; a gateway connects different networks and may translate protocols; a router connects networks and routes packets using IP addresses."}, {"unit": "Unit 3 — WWW & E-mail", "q": "What is the World Wide Web?", "a": "The WWW is a vast information space on the Internet containing interconnected documents and resources linked by hyperlinks and URLs."}, {"unit": "Unit 3 — WWW & E-mail", "q": "State four objectives of the WWW.", "a": "Information accessibility, communication, multimedia content and global connectivity."}, {"unit": "Unit 3 — WWW & E-mail", "q": "What is a web browser? Mention its purpose.", "a": "A web browser is software used to access and navigate resources on the World Wide Web."}, {"unit": "Unit 3 — WWW & E-mail", "q": "What is a search engine?", "a": "A search engine is a service used to search for and locate content on the Web."}, {"unit": "Unit 3 — WWW & E-mail", "q": "What are favorites/bookmarks used for?", "a": "They save web pages or URLs so they can be accessed again easily."}, {"unit": "Unit 3 — WWW & E-mail", "q": "What is e-governance?", "a": "E-governance involves using websites and electronic systems to provide or access government-related services and information."}, {"unit": "Unit 3 — WWW & E-mail", "q": "What is electronic mail?", "a": "Electronic mail (e-mail) is a method of sending and receiving messages electronically."}, {"unit": "Unit 3 — WWW & E-mail", "q": "Differentiate Inbox and Outbox.", "a": "The Inbox contains received messages, while the Outbox is used for messages being sent or waiting to be sent, depending on the mail system."}, {"unit": "Unit 3 — WWW & E-mail", "q": "Explain replying and forwarding an email.", "a": "Replying sends a response to the sender of an existing message. Forwarding sends an existing message to another recipient."}, {"unit": "Unit 3 — WWW & E-mail", "q": "What is document collaboration?", "a": "Document collaboration allows people to work together on documents or shared content."}, {"unit": "Unit 3 — WWW & E-mail", "q": "What is instant messaging?", "a": "Instant messaging allows users to exchange messages in real time."}, {"unit": "Unit 4 — HTML5 & Web Development", "q": "What is HTML5?", "a": "HTML5 is a version of HTML used to structure Web documents. The notes cover syntax, validation, elements, inputs, forms, tables, images, hyperlinks and semantic elements."}, {"unit": "Unit 4 — HTML5 & Web Development", "q": "What is HTML validation?", "a": "HTML validation checks whether HTML markup follows expected rules and structure."}, {"unit": "Unit 4 — HTML5 & Web Development", "q": "Mention form and input features covered in the notes.", "a": "The notes cover various input elements and attributes, forms and widgets/elements such as menus and sliders."}, {"unit": "Unit 4 — HTML5 & Web Development", "q": "How are images included in HTML?", "a": "Images are included using an image element. The notes specifically refer to attributes such as src for the image resource and alt for alternative text."}, {"unit": "Unit 4 — HTML5 & Web Development", "q": "What is a hyperlink and what does href do?", "a": "A hyperlink connects a page/resource to another location. The href attribute specifies the destination of the link."}, {"unit": "Unit 4 — HTML5 & Web Development", "q": "What is directory navigation notation/relative path?", "a": "A relative path identifies a file or directory in relation to the current document rather than using a complete absolute address."}, {"unit": "Unit 4 — HTML5 & Web Development", "q": "Differentiate div and span.", "a": "div is used as a container for grouping larger sections of content, while span groups or styles smaller inline portions of content."}, {"unit": "Unit 4 — HTML5 & Web Development", "q": "What are HTML5 semantic elements?", "a": "They are elements that communicate the role or meaning of content. The notes mention header, nav, article, section, aside, footer and main."}, {"unit": "Unit 4 — HTML5 & Web Development", "q": "What are browser variations?", "a": "Different browsers can vary in how they support or render web technologies, so web pages may need to account for those differences."}, {"unit": "Unit 4 — HTML5 & Web Development", "q": "What are AFS and Secure Shell (SSH) used for?", "a": "The notes cover the AFS environment and Secure Shell as part of working with remote/networked computing environments. SSH provides secure remote access."}, {"unit": "Unit 4 — HTML5 & Web Development", "q": "What is Expression Web?", "a": "Expression Web is a high-level HTML editor mentioned in the notes for implementation and self-instruction."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "What is PHP and what is it used for?", "a": "PHP is used for server-side scripting and database interaction. The notes cover its syntax, HTML form interaction and use with background databases."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "How does PHP interact with HTML forms?", "a": "PHP can receive and process data submitted through HTML forms and use it in server-side processing."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "What are programmer-defined functions?", "a": "They are functions designed and implemented by the programmer to perform specific tasks and provide reusable code."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "What are embedded SQL queries?", "a": "Embedded SQL queries are SQL statements incorporated into application code so the program can interact with a database."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "What is a 3-tier application?", "a": "A 3-tier application separates presentation, application/processing and data/database responsibilities into three layers."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "Differentiate PHP, MySQL and HTML errors.", "a": "PHP errors arise from PHP code or syntax; MySQL errors can arise from database operations or SQL statements; HTML errors arise from incorrect HTML markup."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "What is HTTP?", "a": "HTTP is the protocol used for communication between web clients and servers and for transferring Web resources."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "What are domain names and ports?", "a": "A domain name is a human-readable name identifying an Internet host or website. A port identifies a logical communication endpoint used by a network service."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "What is Telnet used for in the context of remote hosts?", "a": "Telnet can be used to connect to a remote host and interact with it through a terminal-style session."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "Mention UNIX commands covered in the notes and their purposes.", "a": "ps displays active processes; kill sends a signal to terminate a process; whoami displays the current username; who shows logged-in users; passwd changes a password; ping tests network connectivity."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "What is GET?", "a": "GET is an HTTP method used for retrieving data. Its parameters are commonly included in the URL as a query string, and the notes describe GET as idempotent."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "What is POST?", "a": "POST is an HTTP method used to submit data for processing. Its parameters are included in the request body and it is not idempotent by default."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "Give three differences between GET and POST.", "a": "GET retrieves data and commonly places parameters in the URL; POST submits data in the request body. GET is described as idempotent, while POST is not idempotent by default."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "What are HTTP message headers and bodies?", "a": "Headers provide metadata such as content type, server details and caching instructions. The body contains the actual data being transmitted."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "Explain Host, User-Agent, Accept and Content-Type headers.", "a": "Host specifies the server domain; User-Agent identifies the client; Accept states media types the client can process; Content-Type describes the media type of data being sent."}, {"unit": "Unit 5 — PHP, HTTP & Internet Tools", "q": "What are Cache-Control and Connection headers?", "a": "Cache-Control gives instructions about caching. Connection controls whether the connection should be kept alive."}];
-const names=[...new Set(bank.map(x=>x.unit))];
-let set=[],pos=0,currentUnit=0;
-const $=x=>document.getElementById(x);
-function home(){
-  $('home').classList.remove('hidden');$('study').classList.add('hidden');$('finish').classList.add('hidden');
-  $('units').innerHTML=names.map((u,i)=>'<button class="unit" onclick="start('+i+')"><b>'+u+'</b><span>'+bank.filter(x=>x.unit===u).length+' theory questions</span></button>').join('');
-}
-function start(n){
-  currentUnit=n;set=bank.filter(x=>x.unit===names[n]);pos=0;
-  $('home').classList.add('hidden');$('finish').classList.add('hidden');$('study').classList.remove('hidden');
-  $('tabs').innerHTML=names.map((u,i)=>'<button class="tab '+(i===n?'active':'')+'" onclick="start('+i+')">Unit '+(i+1)+'</button>').join('');
-  render();
-}
-function render(){
-  const x=set[pos];$('count').textContent='Question '+(pos+1)+' of '+set.length;$('unit').textContent=x.unit;
-  $('question').textContent=x.q;$('answerText').textContent=x.a;$('answer').classList.remove('show');$('reveal').textContent='💡 Show Answer';
-  $('bar').style.width=((pos+1)/set.length*100)+'%';window.scrollTo({top:0,behavior:'smooth'});
-}
-$('reveal').onclick=()=>{let a=$('answer');a.classList.toggle('show');$('reveal').textContent=a.classList.contains('show')?'Hide Answer':'💡 Show Answer'};
-$('next').onclick=()=>{if(pos<set.length-1){pos++;render()}else{$('study').classList.add('hidden');$('finish').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'})}};
-$('back').onclick=home;$('all').onclick=home;$('again').onclick=()=>{pos=0;$('finish').classList.add('hidden');$('study').classList.remove('hidden');render()};
-home();
-</script></body></html>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: #eaf4ff;
+      font-family: Arial, sans-serif;
+      color: #183153;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      padding: 40px 25px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(50, 100, 150, 0.12);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    p {
+      color: #60758d;
+      line-height: 1.6;
+    }
+
+    .emoji {
+      font-size: 50px;
+    }
+
+    button {
+      margin-top: 20px;
+      border: none;
+      background: #8bb8f5;
+      color: white;
+      padding: 13px 25px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <div class="emoji">📚✨</div>
+
+    <h1>Faith's CYB102 Study App</h1>
+
+    <p>
+      Welcome to my CYB102 theory exam study app.
+      Built by Faith Adedeji 💙
+    </p>
+
+    <button onclick="alert('GitHub Pages is working! 🎉')">
+      Test App
+    </button>
+  </div>
+
+</body>
+  </html>
